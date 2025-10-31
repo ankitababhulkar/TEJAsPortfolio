@@ -1,0 +1,73 @@
+/* Custom styles for the portfolio */
+.gradient-text {
+  background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Ensure proper text wrapping and spacing */
+.hero-content {
+  max-width: 100%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Responsive text sizing */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem !important;
+    line-height: 1.1;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .stats-container {
+    flex-wrap: wrap;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Smooth transitions */
+button {
+  transition: all 0.3s ease;
+}
+
+/* Profile image styling */
+.profile-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-image-container img {
+  transition: transform 0.3s ease;
+}
+
+.profile-image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Timeline responsive styles */
+@media (max-width: 768px) {
+  .timeline-mobile {
+    flex-direction: column;
+  }
+  
+  .timeline-card {
+    width: 100% !important;
+    margin-left: 0 !important;
+    padding-left: 2rem !important;
+    padding-right: 0 !important;
+  }
+  
+  .timeline-line-mobile {
+    left: 1rem !important;
+  }
+  
+  .timeline-dot-mobile {
+    left: 1rem !important;
+  }
+}
