@@ -1,71 +1,84 @@
+import { useScrollAnimation } from './hooks/useScrollAnimation';
+
 function Projects() {
+  const [headerRef, headerVisible] = useScrollAnimation();
+  const [gridRef, gridVisible] = useScrollAnimation();
+  
   const projects = [
     {
-      name: "TechBank Solutions",
-      domain: "Banking/Finance",
-      dateRange: "May 2024 - Present",
-      role: "Data Scientist (AI/ML) at TechBank Solutions",
-      description: "Secure microservices-based banking platform with real-time transaction processing, fraud detection, and customer portals. Enhanced transaction speed by 75% while ensuring PCI DSS compliance.",
+      name: "POC on MCP (Multi-Cloud Pipeline)",
+      domain: "AI/ML Infrastructure",
+      dateRange: "2024 - Present",
+      role: "Data Scientist & AI/ML Engineer",
+      description: "Designed a multi-cloud data pipeline using Azure and GCP for AI-driven analytics. Implemented MLOps pipelines and automated deployment workflows for model updates.",
       keyFeatures: [
-        "PCI DSS compliance",
-        "Real-time fraud detection",
-        "Microservices architecture",
-        "24x7 fraud monitoring",
-        "Reduced CPU utilization from 80% to 45%"
+        "Multi-cloud architecture",
+        "MLOps pipeline automation",
+        "AI-driven analytics",
+        "Automated model deployment",
+        "Cross-platform data integration"
       ],
-      technologies: ["Java", "Spring Boot", "Microservices", "ReactJS", "MySQL", "TypeScript", "AWS", "Docker", "Jenkins", "Kafka", "SQL Server"]
+      technologies: ["Python", "Azure", "GCP", "MLOps", "Docker", "Kubernetes", "TensorFlow", "PyTorch", "Apache Airflow", "SQL"]
     },
     {
-      name: "InsureFlow Analytics",
-      domain: "Insurance",
-      dateRange: "May 2022 - Jul 2023",
-      role: "Software Developer (Java Full Stack) at InsureFlow Analytics",
-      description: "Comprehensive insurance platform with automated workflows, self-service policy management, and claims tracking. Achieved 99.95% uptime and reduced policy issuance time by 40%.",
+      name: "Crew AI – Intelligent Agent Collaboration System",
+      domain: "Agentic AI",
+      dateRange: "2024",
+      role: "AI/ML Engineer & Research Developer",
+      description: "Built an Agentic AI framework using LangChain and LLMs for multi-agent task coordination. Enhanced task efficiency through adaptive prompt routing and context retention.",
       keyFeatures: [
-        "40% faster policy issuance",
-        "99.95% system uptime",
-        "Automated claims tracking",
-        "Kubernetes scaling",
-        "HIPAA & SOC compliance"
+        "Multi-agent coordination",
+        "Adaptive prompt routing",
+        "Context retention system",
+        "Task efficiency optimization",
+        "LLM integration framework"
       ],
-      technologies: ["Java", "Spring Boot", "Microservices", "Angular", "TypeScript", "Azure", "Kubernetes", "TerraForm", "Jenkins", "Kafka"]
+      technologies: ["Python", "LangChain", "LangGraph", "OpenAI API", "Hugging Face", "FastAPI", "Redis", "PostgreSQL", "Docker"]
     },
     {
-      name: "HealthTech Platform",
-      domain: "Healthcare",
-      dateRange: "Jan 2021 - April 2022",
-      role: "Java Software Engineer at HealthTech Platform",
-      description: "HIPAA-compliant healthcare platform with patient data management, appointment scheduling, and real-time lab results. Reduced patient onboarding time by 35%.",
+      name: "Cursor AI – Conversational AI Assistant",
+      domain: "Conversational AI",
+      dateRange: "2024",
+      role: "AI Engineer & Full Stack Developer",
+      description: "Developed an AI-powered chatbot integrating Graph RAG and LangGraph for contextual memory. Deployed on cloud infrastructure with real-time response optimization.",
       keyFeatures: [
-        "35x faster patient onboarding",
-        "HIPAA compliance",
-        "Real-time lab results",
-        "25% improved responsiveness",
-        "Cloud-first security"
+        "Graph RAG implementation",
+        "Contextual memory system",
+        "Real-time response optimization",
+        "Cloud-native deployment",
+        "Advanced conversation flow"
       ],
-      technologies: ["Java", "Spring Boot", "React", "JavaScript (ES6)", "MongoDB", "Kubernetes", "Azure", "GitHub 2.0"]
+      technologies: ["Python", "LangGraph", "Graph RAG", "Vector Databases", "AWS", "FastAPI", "React", "WebSocket", "Neo4j"]
     }
   ];
 
   return (
     <section id="projects" className="px-8 py-20 max-w-7xl mx-auto scroll-mt-24">
       {/* Section Header */}
-      <div className="text-center mb-16">
+      <div 
+        ref={headerRef}
+        className={`text-center mb-16 ${headerVisible ? 'animate-fade-in-up' : 'animate-on-scroll'}`}
+      >
         <h2 className="text-4xl md:text-5xl font-bold mb-6">
-          Enterprise <span className="text-[#4fc3f7]">Projects</span>
+          AI/ML <span className="text-[#4fc3f7]">Projects</span>
         </h2>
         <p className="text-gray-300 text-lg max-w-4xl mx-auto leading-relaxed">
-          Real-world enterprise applications built for Fortune 500 companies across banking, 
-          healthcare, and insurance domains.
+          Cutting-edge AI and machine learning projects focused on intelligent automation, 
+          multi-agent systems, and advanced data analytics solutions.
         </p>
       </div>
 
       {/* Projects Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div 
+        ref={gridRef}
+        className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+      >
         {projects.map((project, index) => (
           <div 
             key={index}
-            className="bg-gray-800/30 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-[#4fc3f7]/30 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-[#4fc3f7]/10 h-full flex flex-col"
+            className={`bg-gray-800/30 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-[#4fc3f7]/30 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-[#4fc3f7]/10 h-full flex flex-col ${
+              gridVisible ? `animate-fade-in-up animate-delay-${Math.min(index * 200, 400)}` : 'animate-on-scroll'
+            }`}
           >
             {/* Project Header */}
             <div className="mb-4">

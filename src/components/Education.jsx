@@ -1,7 +1,6 @@
 function Education() {
   const educationData = [
     {
-      icon: "🎓",
       degree: "Master of Science, Computer Science",
       university: "University of North Texas",
       universityUrl: "#",
@@ -9,7 +8,6 @@ function Education() {
       status: "Graduated May 2025"
     },
     {
-      icon: "💻",
       degree: "Bachelor of Technology",
       university: "Vidhya Jyothi Institute of Technology",
       universityUrl: "#",
@@ -53,9 +51,8 @@ function Education() {
               key={index}
               className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-[#4fc3f7]/30 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-lg hover:shadow-[#4fc3f7]/10"
             >
-              {/* Icon and Degree */}
-              <div className="flex items-start gap-4 mb-4">
-                <span className="text-2xl mt-1">{edu.icon}</span>
+              {/* Degree */}
+              <div className="mb-4">
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-white mb-2">
                     {edu.degree}
